@@ -356,30 +356,45 @@
       </div>
     </div>
 
-    <form id="cf" action="https://formspree.io/f/xqeaqdno" method="post" class="cform">
-      <div class="frow">
-        <div class="fg"><label>Your Name</label><input type="text" name="name" id="nm" placeholder="Your full name" required></div>
-        <div class="fg"><label>Email Address</label><input type="email" name="email" id="em" placeholder="you@example.com" required></div>
-      </div>
-      <div class="fg">
-        <label>Website Type</label>
-        <div class="type-grid">
-          <label class="tcheck"><input type="checkbox" name="project_type[]" value="Business"> Business</label>
-          <label class="tcheck"><input type="checkbox" name="project_type[]" value="E-commerce"> E-commerce</label>
-          <label class="tcheck"><input type="checkbox" name="project_type[]" value="Real Estate"> Real Estate</label>
-          <label class="tcheck"><input type="checkbox" name="project_type[]" value="Membership"> Membership</label>
-          <label class="tcheck"><input type="checkbox" name="project_type[]" value="Booking"> Booking</label>
-          <label class="tcheck"><input type="checkbox" name="project_type[]" value="Landing Page"> Landing Page</label>
-          <label class="tcheck"><input type="checkbox" name="project_type[]" value="Blogging"> Blogging</label>
-          <label class="tcheck"><input type="checkbox" name="project_type[]" value="Educational"> Educational</label>
-          <label class="tcheck"><input type="checkbox" name="project_type[]" value="Portfolio"> Portfolio</label>
-        </div>
-      </div>
-      <div class="fg"><label>Project Details</label><textarea name="message" id="msg" placeholder="Tell me about your project, requirements, timeline and budget..."></textarea></div>
-      <div id="ty">✓ Message sent! I'll get back to you very soon.</div>
-      <div id="err">Please fill in your name, email and message.</div>
-      <button type="button" id="sb" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
-    </form>
+ <form id="cf" action="https://formspree.io/f/mojkwgqv" method="POST" class="cform">
+  <input type="hidden" name="_subject" value="New Portfolio Message - Uzair Shahid Bajwa">
+
+  <div class="frow">
+    <div class="fg">
+      <label>Your Name</label>
+      <input type="text" name="name" placeholder="Your full name" required>
+    </div>
+
+    <div class="fg">
+      <label>Email Address</label>
+      <input type="email" name="email" placeholder="you@example.com" required>
+    </div>
+  </div>
+
+  <div class="fg">
+    <label>Website Type</label>
+    <div class="type-grid">
+      <label class="tcheck"><input type="checkbox" name="project_type[]" value="Business"> Business</label>
+      <label class="tcheck"><input type="checkbox" name="project_type[]" value="E-commerce"> E-commerce</label>
+      <label class="tcheck"><input type="checkbox" name="project_type[]" value="Real Estate"> Real Estate</label>
+      <label class="tcheck"><input type="checkbox" name="project_type[]" value="Membership"> Membership</label>
+      <label class="tcheck"><input type="checkbox" name="project_type[]" value="Booking"> Booking</label>
+      <label class="tcheck"><input type="checkbox" name="project_type[]" value="Landing Page"> Landing Page</label>
+      <label class="tcheck"><input type="checkbox" name="project_type[]" value="Blogging"> Blogging</label>
+      <label class="tcheck"><input type="checkbox" name="project_type[]" value="Educational"> Educational</label>
+      <label class="tcheck"><input type="checkbox" name="project_type[]" value="Portfolio"> Portfolio</label>
+    </div>
+  </div>
+
+  <div class="fg">
+    <label>Project Details</label>
+    <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+  </div>
+
+  <button type="submit" class="submit-btn">
+    Send Message <i class="fas fa-paper-plane"></i>
+  </button>
+</form>
   </div>
 </section>
 
