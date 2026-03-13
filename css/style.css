@@ -475,7 +475,9 @@ h2.big .dim{-webkit-text-stroke:1px rgba(255,255,255,0.18);color:transparent}
   display:block;padding:11px 16px;background:var(--bg);border:1px solid var(--border);
   border-radius:8px;color:var(--muted);text-decoration:none;
   font-size:0.78rem;font-weight:500;transition:all 0.25s;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  /* white-space:nowrap;
+  overflow:hidden; */
+  text-overflow:ellipsis;
 }
 .pl span{
   display:block;font-size:0.65rem;color:var(--muted);opacity:0.6;
