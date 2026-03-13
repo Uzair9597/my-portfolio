@@ -58,7 +58,11 @@ document.getElementById('sb').addEventListener('click', async () => {
         ty.style.display = 'none';
       }, 4000);
     } else {
-      err.textContent = result.errors?.map(x => x.message).join(', ') || 'Message not sent.';
+      if (result.errors && result.errors.length > 0) {
+        err.textContent = result.errors.map(item => item.message).join(', ');
+      } else {
+        err.textContent = 'Message not sent. Please try again.';
+      }
       err.style.display = 'block';
     }
   } catch (error) {
@@ -69,7 +73,6 @@ document.getElementById('sb').addEventListener('click', async () => {
     btn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
   }
 });
-
 // Scroll reveal
 const io=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{
