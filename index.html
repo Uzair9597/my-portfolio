@@ -9,6 +9,91 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <link rel="stylesheet" href="css/style.css">
+  <style>
+    .pl {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s ease;
+  overflow: visible;
+}
+
+.pl span {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.8);
+}
+
+.pl:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(180,255,80,0.35);
+}
+
+.pl-pop {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  transform: translateX(-50%) translateY(10px);
+  width: 260px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #111;
+  color: #ddd;
+  font-size: 13px;
+  line-height: 1.5;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: 0.25s ease;
+  z-index: 50;
+}
+
+.pl-pop::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: #111 transparent transparent transparent;
+}
+
+.pl:hover .pl-pop {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+@media (max-width: 768px) {
+  .pl-pop {
+    left: 0;
+    bottom: auto;
+    top: calc(100% + 10px);
+    transform: translateX(0) translateY(10px);
+    width: 100%;
+  }
+
+  .pl-pop::after {
+    display: none;
+  }
+
+  .pl:hover .pl-pop {
+    transform: translateX(0) translateY(0);
+  }
+}
+  </style>
 </head>
 
 <body>
