@@ -17,23 +17,58 @@ window.addEventListener('scroll',()=>document.getElementById('nav').classList.to
 document.getElementById('yr').textContent=new Date().getFullYear();
 
 // Form
-// document.getElementById('sb').addEventListener('click',()=>{
-//   const n=document.getElementById('nm').value.trim();
-//   const e=document.getElementById('em').value.trim();
-//   const m=document.getElementById('msg').value.trim();
-//   if(!n||!e||!m){document.getElementById('err').style.display='block';return}
-//   document.getElementById('err').style.display='none';
-//   const form=document.getElementById('cf');
-//   fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}})
-//     .then(()=>{
-//       document.getElementById('ty').style.display='block';
-//       form.reset();
-//       setTimeout(()=>document.getElementById('ty').style.display='none',4000);
-//     }).catch(()=>{
-//       document.getElementById('ty').style.display='block';
-//       setTimeout(()=>document.getElementById('ty').style.display='none',4000);
-//     });
-// });
+document.getElementById('sb').addEventListener('click', async () => {
+  const n = document.getElementById('nm').value.trim();
+  const e = document.getElementById('em').value.trim();
+  const m = document.getElementById('msg').value.trim();
+
+  const form = document.getElementById('cf');
+  const ty = document.getElementById('ty');
+  const err = document.getElementById('err');
+  const btn = document.getElementById('sb');
+
+  ty.style.display = 'none';
+  err.style.display = 'none';
+
+  if (!n || !e || !m) {
+    err.textContent = 'Please fill in your name, email and message.';
+    err.style.display = 'block';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = 'Sending...';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {
+        Accept: 'application/json'
+      }
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      ty.style.display = 'block';
+      form.reset();
+
+      setTimeout(() => {
+        ty.style.display = 'none';
+      }, 4000);
+    } else {
+      err.textContent = result.errors?.map(x => x.message).join(', ') || 'Message not sent.';
+      err.style.display = 'block';
+    }
+  } catch (error) {
+    err.textContent = 'Something went wrong. Please try again.';
+    err.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+  }
+});
 
 // Scroll reveal
 const io=new IntersectionObserver(entries=>{
